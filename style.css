@@ -1,0 +1,55 @@
+body{
+    background-color: rgb(37, 37, 37);
+    padding-left: 100px;
+    padding-right: 100px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.display{
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textarea{
+    border-radius: 5px;
+    background-color: black;
+    border: 1px solid black;
+
+    width: 400px;
+    height: 100px;
+}
+
+.buttonFile{
+    width: 200px;
+}
+
+.buttonFile {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .buttonFile:hover {
+    background-color: #45a049;
+  }
+  
+  .buttonFile:active {
+    background-color: #3c903c;
+  }
+  
+  .buttonFile:focus {
+    outline: none;
+  }
+  
+  /* Estilo para ocultar o input file padrão */
+  input[type="file"] {
+    display: none;
+  }
+  

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body style="text-align: center;">
+    
+    
+   
+            <section style="margin-top: 100px;" >
+                    <label class="buttonFile" for="file-selector">Enviar arquivo</label>        
+                    <input style="display: none;" type="file" id="file-selector"> 
+            </section>
+            
+            <section style="margin-top: 50px;">
+                <textarea style="color: rgb(0, 100, 42);" name="" class="textarea" id="resultTxt" cols="60" rows="15">$. deCoder -codeChallenge</textarea>
+
+            </section>      
+    
+
+    
+    
+</body>
+<script>
+    
+    const fileSelector = document.getElementById('file-selector');
+    var adress = 0
+
+    fileSelector.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+        const contents = e.target.result;
+        const commands = contents.split(",");
+        this.searchAdress(commands)
+    };
+    reader.readAsText(file);
+    });
+
+    function searchAdress(commands){
+    for(var cs = 0; cs < commands.length; cs++){
+      
+        if(commands[cs][0] == 2 && commands[cs][1] == 0){
+          var value = commands[cs].slice(2);
+          adress += parseInt(value)          
+        }
+        else if(commands[cs][0] == 5){
+          debugger
+          var jump = commands[cs].slice(1);
+          cs += (parseInt(jump) - 1)
+        }
+        else{
+          console.log("Invalid Command - Is not a known command. So nothing is done.")
+        }
+    }
+    console.log("adress =" + adress)
+    resultTxt.value = "$. deCoder -codeChallenge..." + "adress: " + adress;
+
+}
+
+</script>
+</html>
